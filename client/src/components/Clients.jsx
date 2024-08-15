@@ -1,18 +1,19 @@
 import { useQuery } from '@apollo/client';
-import ClientRow from './ClientRow';
-import Spinner from './Spinner';
+import ClientRow from '../components/ClientRow';
 import { GET_CLIENTS } from '../queries/clientQueries';
+import Spinner from './Spinner';
+import styles from './Clients.module.css';
 
 export default function Clients() {
   const { loading, error, data } = useQuery(GET_CLIENTS);
 
   if (loading) return <Spinner />;
-  if (error) return <p>Something Went Wrong</p>;
+  if (error) return <div className={styles.errorText}>Error! {error.message}</div>;
 
   return (
     <>
       {!loading && !error && (
-        <table className='table table-hover mt-3'>
+        <table className={`table table-hover mt-3 ${styles.tableCustom}`}>
           <thead>
             <tr>
               <th>Name</th>

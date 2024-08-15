@@ -1,0 +1,72 @@
+/* Add Client Button */
+.addClientButton {
+    background-color: #6c757d;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .addClientButton:hover {
+    background-color: #5a6268;
+  }
+  
+  .icon {
+    margin-right: 8px;
+  }
+  
+  /* Modal Header */
+  .modalHeader {
+    background-color: #6c757d;
+    color: white;
+    padding: 15px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+  }
+  
+  .modalTitle {
+    font-size: 20px;
+    font-weight: bold;
+  }
+  
+  .btnClose {
+    color: white;
+    font-size: 1.5rem;
+  }
+  
+  /* Modal Body */
+  .modalBody {
+    padding: 20px;
+    background-color: #f8f9fa;
+  }
+  
+  /* Form Control */
+  .formControl {
+    border-radius: 5px;
+    padding: 10px;
+    border: 1px solid #ced4da;
+    margin-bottom: 15px;
+    font-size: 16px;
+  }
+  
+  /* Submit Button */
+  .submitButton {
+    background-color: #28a745;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+  }
+  
+  .submitButton:hover {
+    background-color: #218838;
+  }
+  

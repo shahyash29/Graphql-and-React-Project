@@ -1,0 +1,62 @@
+.modalHeader {
+    background-color: #007bff;
+    color: white;
+    padding: 15px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+  }
+  
+  .modalTitle {
+    font-size: 20px;
+    font-weight: bold;
+  }
+  
+  .closeButton {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1.5rem;
+  }
+  
+  .modalBody {
+    padding: 20px;
+  }
+  
+  .formControl {
+    border-radius: 5px;
+    padding: 10px;
+    border: 1px solid #ced4da;
+    margin-bottom: 15px;
+  }
+  
+  .submitButton {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .submitButton:hover {
+    background-color: #0056b3;
+  }
+  
+  .icon {
+    margin-right: 5px;
+  }
+  
+  .newProjectButton {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+  }
+  
+  .newProjectButton:hover {
+    background-color: #0056b3;
+  }
+  

@@ -1,8 +1,9 @@
-import { useState } from 'react';
-import { FaUser } from 'react-icons/fa';
-import { useMutation } from '@apollo/client';
-import { ADD_CLIENT } from '../mutations/clientMutations';
-import { GET_CLIENTS } from '../queries/clientQueries';
+import { useState } from "react";
+import { FaUser } from "react-icons/fa";
+import { useMutation } from "@apollo/client";
+import { ADD_CLIENT } from "../mutations/clientMutations";
+import { GET_CLIENTS } from "../queries/clientQueries";
+import styles from './AddClientModal.module.css';  // Import the CSS Module
 
 export default function AddClientModal() {
   const [name, setName] = useState('');
@@ -13,23 +14,19 @@ export default function AddClientModal() {
     variables: { name, email, phone },
     update(cache, { data: { addClient } }) {
       const { clients } = cache.readQuery({ query: GET_CLIENTS });
-
       cache.writeQuery({
         query: GET_CLIENTS,
-        data: { clients: [...clients, addClient] },
+        data: { clients: clients.concat([addClient]) },
       });
     },
   });
 
   const onSubmit = (e) => {
     e.preventDefault();
-
     if (name === '' || email === '' || phone === '') {
       return alert('Please fill in all fields');
     }
-
     addClient(name, email, phone);
-
     setName('');
     setEmail('');
     setPhone('');
@@ -39,12 +36,12 @@ export default function AddClientModal() {
     <>
       <button
         type='button'
-        className='btn btn-secondary'
+        className={styles.addClientButton}  // Use the custom button class
         data-bs-toggle='modal'
         data-bs-target='#addClientModal'
       >
         <div className='d-flex align-items-center'>
-          <FaUser className='icon' />
+          <FaUser className={styles.icon} />  // Use the custom icon class
           <div>Add Client</div>
         </div>
       </button>
@@ -57,24 +54,24 @@ export default function AddClientModal() {
       >
         <div className='modal-dialog'>
           <div className='modal-content'>
-            <div className='modal-header'>
-              <h5 className='modal-title' id='addClientModalLabel'>
+            <div className={`modal-header ${styles.modalHeader}`}>  // Use the custom modal header class
+              <h5 className={styles.modalTitle} id='addClientModalLabel'>  // Use the custom title class
                 Add Client
               </h5>
               <button
                 type='button'
-                className='btn-close'
+                className={`btn-close ${styles.btnClose}`}  // Use the custom close button class
                 data-bs-dismiss='modal'
                 aria-label='Close'
               ></button>
             </div>
-            <div className='modal-body'>
+            <div className={`modal-body ${styles.modalBody}`}>  // Use the custom modal body class
               <form onSubmit={onSubmit}>
                 <div className='mb-3'>
                   <label className='form-label'>Name</label>
                   <input
                     type='text'
-                    className='form-control'
+                    className={`form-control ${styles.formControl}`}  // Use the custom form control class
                     id='name'
                     value={name}
                     onChange={(e) => setName(e.target.value)}
@@ -84,7 +81,7 @@ export default function AddClientModal() {
                   <label className='form-label'>Email</label>
                   <input
                     type='email'
-                    className='form-control'
+                    className={`form-control ${styles.formControl}`}  // Use the custom form control class
                     id='email'
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
@@ -94,7 +91,7 @@ export default function AddClientModal() {
                   <label className='form-label'>Phone</label>
                   <input
                     type='text'
-                    className='form-control'
+                    className={`form-control ${styles.formControl}`}  // Use the custom form control class
                     id='phone'
                     value={phone}
                     onChange={(e) => setPhone(e.target.value)}
@@ -104,7 +101,7 @@ export default function AddClientModal() {
                 <button
                   type='submit'
                   data-bs-dismiss='modal'
-                  className='btn btn-secondary'
+                  className={styles.submitButton}  // Use the custom submit button class
                 >
                   Submit
                 </button>

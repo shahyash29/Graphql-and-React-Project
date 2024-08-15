@@ -1,10 +1,11 @@
-import { Link, useParams } from 'react-router-dom';
-import Spinner from '../components/Spinner';
-import ClientInfo from '../components/ClientInfo';
-import DeleteProjectButton from '../components/DeleteProjectButton';
-import EditProjectForm from '../components/EditProjectForm';
-import { useQuery } from '@apollo/client';
-import { GET_PROJECT } from '../queries/projectQueries';
+import { Link, useParams } from "react-router-dom";
+import Spinner from "../components/Spinner";
+import { useQuery } from "@apollo/client";
+import { GET_PROJECT } from "../queries/projectQueries";
+import ClientInfo from "../components/ClientInfo";
+import DeleteProjectButton from "../components/DeleteProjectButton";
+import EditProjectForm from "../components/EditProjectForm";
+import styles from './Project.module.css';  // Import the CSS Module
 
 export default function Project() {
   const { id } = useParams();
@@ -16,21 +17,16 @@ export default function Project() {
   return (
     <>
       {!loading && !error && (
-        <div className='mx-auto w-75 card p-5'>
-          <Link to='/' className='btn btn-light btn-sm w-25 d-inline ms-auto'>
+        <div className={styles.cardContainer}>
+          <Link to="/" className={styles.backButton}>
             Back
           </Link>
-
-          <h1>{data.project.name}</h1>
-          <p>{data.project.description}</p>
-
-          <h5 className='mt-3'>Project Status</h5>
-          <p className='lead'>{data.project.status}</p>
-
+          <h1 className={styles.projectTitle}>{data.project.name}</h1>
+          <p className={styles.projectDescription}>{data.project.description}</p>
+          <h5 className={styles.projectStatusTitle}>Project Status</h5>
+          <p className={styles.projectStatus}>{data.project.status}</p>
           <ClientInfo client={data.project.client} />
-
           <EditProjectForm project={data.project} />
-
           <DeleteProjectButton projectId={data.project.id} />
         </div>
       )}

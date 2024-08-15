@@ -1,0 +1,57 @@
+/* Card Container */
+.cardContainer {
+    margin: 2rem auto;
+    padding: 2rem;
+    max-width: 900px;
+    background-color: #f8f9fa;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Back Button */
+  .backButton {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-bottom: 1rem;
+  }
+  
+  .backButton:hover {
+    background-color: #0056b3;
+  }
+  
+  /* Project Title */
+  .projectTitle {
+    font-size: 32px;
+    font-weight: bold;
+    color: #343a40;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+  }
+  
+  /* Project Description */
+  .projectDescription {
+    font-size: 18px;
+    color: #6c757d;
+    margin-bottom: 2rem;
+  }
+  
+  /* Project Status */
+  .projectStatusTitle {
+    font-size: 20px;
+    font-weight: bold;
+    color: #343a40;
+    margin-bottom: 0.5rem;
+  }
+  
+  .projectStatus {
+    font-size: 18px;
+    color: #6c757d;
+    margin-bottom: 2rem;
+  }
+  

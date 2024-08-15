@@ -1,0 +1,40 @@
+.tableCustom {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    overflow: hidden;
+  }
+  
+  .tableCustom thead {
+    background-color: #007bff;
+    color: white;
+    text-align: left;
+  }
+  
+  .tableCustom th, .tableCustom td {
+    padding: 12px 15px;
+  }
+  
+  .tableCustom tbody tr {
+    border-bottom: 1px solid #ddd;
+    transition: background-color 0.3s ease;
+  }
+  
+  .tableCustom tbody tr:hover {
+    background-color: #f1f1f1;
+  }
+  
+  .tableCustom th:last-child,
+  .tableCustom td:last-child {
+    text-align: right;
+  }
+  
+  .errorText {
+    color: red;
+    font-size: 18px;
+    font-weight: bold;
+    text-align: center;
+  }
+  

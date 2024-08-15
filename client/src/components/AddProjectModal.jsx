@@ -4,6 +4,7 @@ import { useMutation, useQuery } from '@apollo/client';
 import { ADD_PROJECT } from '../mutations/projectMutations';
 import { GET_PROJECTS } from '../queries/projectQueries';
 import { GET_CLIENTS } from '../queries/clientQueries';
+import styles from './AddProjectModal.module.css';
 
 export default function AddProjectModal() {
   const [name, setName] = useState('');
@@ -49,14 +50,12 @@ export default function AddProjectModal() {
         <>
           <button
             type='button'
-            className='btn btn-primary'
+            className={styles.newProjectButton}
             data-bs-toggle='modal'
             data-bs-target='#addProjectModal'
           >
-            <div className='d-flex align-items-center'>
-              <FaList className='icon' />
-              <div>New Project</div>
-            </div>
+            <FaList className={styles.icon} />
+            <div>New Project</div>
           </button>
 
           <div
@@ -67,24 +66,26 @@ export default function AddProjectModal() {
           >
             <div className='modal-dialog'>
               <div className='modal-content'>
-                <div className='modal-header'>
-                  <h5 className='modal-title' id='addProjectModalLabel'>
+                <div className={`modal-header ${styles.modalHeader}`}>
+                  <h5 className={`modal-title ${styles.modalTitle}`} id='addProjectModalLabel'>
                     New Project
                   </h5>
                   <button
                     type='button'
-                    className='btn-close'
+                    className={styles.closeButton}
                     data-bs-dismiss='modal'
                     aria-label='Close'
-                  ></button>
+                  >
+                    &times;
+                  </button>
                 </div>
-                <div className='modal-body'>
+                <div className={`modal-body ${styles.modalBody}`}>
                   <form onSubmit={onSubmit}>
                     <div className='mb-3'>
                       <label className='form-label'>Name</label>
                       <input
                         type='text'
-                        className='form-control'
+                        className={`form-control ${styles.formControl}`}
                         id='name'
                         value={name}
                         onChange={(e) => setName(e.target.value)}
@@ -93,7 +94,7 @@ export default function AddProjectModal() {
                     <div className='mb-3'>
                       <label className='form-label'>Description</label>
                       <textarea
-                        className='form-control'
+                        className={`form-control ${styles.formControl}`}
                         id='description'
                         value={description}
                         onChange={(e) => setDescription(e.target.value)}
@@ -103,7 +104,7 @@ export default function AddProjectModal() {
                       <label className='form-label'>Status</label>
                       <select
                         id='status'
-                        className='form-select'
+                        className={`form-select ${styles.formControl}`}
                         value={status}
                         onChange={(e) => setStatus(e.target.value)}
                       >
@@ -117,7 +118,7 @@ export default function AddProjectModal() {
                       <label className='form-label'>Client</label>
                       <select
                         id='clientId'
-                        className='form-select'
+                        className={`form-select ${styles.formControl}`}
                         value={clientId}
                         onChange={(e) => setClientId(e.target.value)}
                       >
@@ -133,7 +134,7 @@ export default function AddProjectModal() {
                     <button
                       type='submit'
                       data-bs-dismiss='modal'
-                      className='btn btn-primary'
+                      className={styles.submitButton}
                     >
                       Submit
                     </button>
